@@ -1,0 +1,75 @@
+const express = require("express");
+const router = express.Router();
+const AppointmentController = require("../../Controllers/AppointmentController");
+const Appointment = require("../../Models/Appointment");
+const Doctor = require("../../Models/Doctor");
+const User = require ("../../models/User")
+
+router.get("/", (req, res) => {
+  res.send("Pagina adm");
+});
+
+// http://localhost:8080/appointment/
+
+router.post("/register", async (req, res) => {
+  const { name, id_user, id_doctor, date, hour, feedback } = req.body;
+  const response = await AppointmentController.createAppointment(name, id_user, id_doctor, date, hour, feedback);
+
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+});
+
+router.get("/list", async (req, res) => {
+  const Appointments = await AppointmentController.getAllAppointments();
+  res.json(Appointments);
+});
+
+router.get("/find/user/:id_user", async (req, res) => {
+  const User = req.params.id_user;
+
+  const response = await AppointmentController.getAppointmentByUser(User);
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+});
+
+router.get("/find/doctor/:id_doctor", async (req, res) => {
+  const Doctor = req.params.id_doctor;
+
+  const response = await AppointmentController.getAppointmentByDoctor(Doctor);
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+});
+
+
+router.put("/modify/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const appointment = await Appointment.findByIdAndUpdate(id, req.body, {new: true,});
+
+    res.status(200).json(appointment);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+});
+
+router.delete("/remove/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const appointment = await Appointment.findByIdAndRemove(id);
+
+    res.status(200).json(appointment);
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+});
+
+module.exports = router;
