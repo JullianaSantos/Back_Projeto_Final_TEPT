@@ -1,0 +1,33 @@
+{
+  "name": "-back_projeto_final",
+  "description": "Backend do projeto final - Programa Start",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevJulliana/-Back_Projeto_Final.git"
+  },
+  "keywords": [],
+  "author": "rocket of thecnology",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevJulliana/-Back_Projeto_Final/issues"
+  },
+  "homepage": "https://github.com/DevJulliana/-Back_Projeto_Final#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.0",
+    "yup": "^0.32.11"
+  }
+}
