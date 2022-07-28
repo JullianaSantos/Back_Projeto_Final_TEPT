@@ -10,10 +10,6 @@ const User = new Schema({
         type: String,
         required: true
     },
-    obj:{
-        type: JSON,
-        required: true
-    },
     phone:{
         type: String,
         required: true

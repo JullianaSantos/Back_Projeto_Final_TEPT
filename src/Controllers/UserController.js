@@ -2,9 +2,9 @@ const User = require('../models/User')
 
 module.exports = {
 
-    async createUser(name, cpf, obj, birth, phone, email, password){
+    async createUser(name, cpf, birth, phone, email, password){
         try {
-            const newUser = await User.create({ name, cpf, obj, birth, phone, email, password })
+            const newUser = await User.create({ name, cpf, birth, phone, email, password })
             return {message: newUser, status: 200}
         } catch (error) {
             return {message: error, status: 400}

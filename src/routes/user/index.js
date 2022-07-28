@@ -23,9 +23,9 @@ router.post("/register", async (req, res) => {
     })
   }
 
-  const { name, cpf, obj, birth, phone, email, password } = req.body;
+  const { name, cpf, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10)
-  const response = await UserController.createUser(name, cpf, obj, birth, phone, email, hashPassword);
+  const response = await UserController.createUser(name, cpf, birth, phone, email, hashPassword);
 
   if (response.status == 200) {
     res.json(response);
