@@ -30,7 +30,7 @@ app.use('/doctor', doctorRoutes)
 app.use('/appointment', appointmentRoutes)
 
 
-const PORT = process.env.PORT || 8081
+const PORT = process.env.PORT || process.env.port || 8081 
 app.listen(PORT, ()=>{
     console.log("Rodando")
 })
