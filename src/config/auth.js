@@ -1,4 +1,4 @@
 module.exports = {
-    secret: "169080A9BF3FECA98FC2D38D63D54A4C4985589BF9AE0FC46703A899C750715C",
-    expireIn: "6h"
+    secret: secret = process.env.SECRET,
+    expireIn: expireIn = process.env.EXPIREIN
 }
