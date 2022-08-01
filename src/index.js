@@ -31,7 +31,8 @@ app.use('/appointment', appointmentRoutes)
 
 
 const PORT = process.env.PORT || process.env.port || 8081 
-app.listen(PORT, ()=>{
+app.listen(PORT, err =>{
+    if(err) throw err;
     console.log("Rodando")
 })
 
