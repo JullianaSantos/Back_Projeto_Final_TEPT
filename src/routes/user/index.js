@@ -8,7 +8,9 @@ const User = require("../../models/User");
 // const jwt = require('jsonwebtoken')
 
 router.get("/", (req, res) => {
-  res.send("");
+  res.json({
+    msg: "Deploy concluído"
+  });
 });
 
 // http://localhost:8080/user/register
