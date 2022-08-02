@@ -1,10 +1,16 @@
-const Appointment = require("../Models/Appointment");
+const Appointment = require("../Models//Appointment");
 
 module.exports = {
-  
   async createAppointment(name, id_user, id_doctor, date, hour, motivation) {
     try {
-      const newAppointment = await Appointment.create({name, id_user, id_doctor, date, hour, motivation});
+      const newAppointment = await Appointment.create({
+        name,
+        id_user,
+        id_doctor,
+        date,
+        hour,
+        motivation,
+      });
       return { message: newAppointment, status: 200 };
     } catch (error) {
       return { message: error, status: 400 };
@@ -40,11 +46,15 @@ module.exports = {
   }, // ADM / User
 
   async updateAppointment(id) {
-    try{
-      const modifyAppointmente = await Appointment.findByIdAndUpdate(id, req.body, {new: true,});
+    try {
+      const modifyAppointmente = await Appointment.findByIdAndUpdate(
+        id,
+        req.body,
+        { new: true }
+      );
       return { message: modifyAppointmente, status: 200 };
-        // Vai receber todos os campos que precisem ser atualizados através do BODY
-    }catch (error){
+      // Vai receber todos os campos que precisem ser atualizados através do BODY
+    } catch (error) {
       return { message: error, status: 400 };
     }
   },
@@ -59,11 +69,11 @@ module.exports = {
   },
 
   async getAppointmentFeedback(id_doctor) {
-    try{
+    try {
       const appointmentFeedback = await Appointment.find(id_doctor);
-      return { message: appointmentFeedback, status: 200};
-    }catch(error){
-      return { message: error, status: 400};
+      return { message: appointmentFeedback, status: 200 };
+    } catch (error) {
+      return { message: error, status: 400 };
     }
   },
 

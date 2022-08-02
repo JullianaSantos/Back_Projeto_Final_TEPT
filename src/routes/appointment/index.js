@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const AppointmentController = require("../../Controllers/AppointmentController");
-const Appointment = require("../../Models/Appointment");
-const Doctor = require("../../Models/Doctor");
-const User = require ("../../models/User")
+const Appointment = require("../../Models//Appointment");
+const Doctor = require("../../Models//Doctor");
+const User = require("../../Models//User");
 
 router.get("/", (req, res) => {
   res.send("Pagina adm");
@@ -13,7 +13,14 @@ router.get("/", (req, res) => {
 
 router.post("/register", async (req, res) => {
   const { name, id_user, id_doctor, date, hour, motivation } = req.body;
-  const response = await AppointmentController.createAppointment(name, id_user, id_doctor, date, hour, motivation);
+  const response = await AppointmentController.createAppointment(
+    name,
+    id_user,
+    id_doctor,
+    date,
+    hour,
+    motivation
+  );
 
   if (response.status == 200) {
     res.json(response);
@@ -49,11 +56,12 @@ router.get("/find/doctor/:id_doctor", async (req, res) => {
   }
 });
 
-
 router.put("/modify/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const appointment = await Appointment.findByIdAndUpdate(id, req.body, {new: true,});
+    const appointment = await Appointment.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
 
     res.status(200).json(appointment);
   } catch (error) {

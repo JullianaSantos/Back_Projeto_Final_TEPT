@@ -1,4 +1,4 @@
-const Doctor = require("../Models/Doctor");
+const Doctor = require("../Models//Doctor");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth");

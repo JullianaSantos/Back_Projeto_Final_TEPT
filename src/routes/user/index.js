@@ -1,33 +1,39 @@
 const express = require("express");
-const AuthUserMiddlewares = require('../../Middlewares/AuthUserMiddleware');
+const AuthUserMiddlewares = require("../../Middlewares/AuthUserMiddleware");
 const LoginUserController = require("../../Controllers/LoginUserController");
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const UserController = require("../../controllers/UserController");
-const User = require("../../models/User");
+const bcrypt = require("bcryptjs");
+const UserController = require("../../Controllers/UserController");
+const User = require("../../Models//User");
 // const jwt = require('jsonwebtoken')
 
 router.get("/", (req, res) => {
   res.json({
-    msg: "Deploy concluído"
+    msg: "Deploy concluído",
   });
 });
 
 // http://localhost:8080/user/register
 
 router.post("/register", async (req, res) => {
-  
-  let userExist = await User.findOne({email: req.body.email});
-  if(userExist){
+  let userExist = await User.findOne({ email: req.body.email });
+  if (userExist) {
     return res.status(400).json({
       error: true,
-      message: "Este usuário já existe!"
-    })
+      message: "Este usuário já existe!",
+    });
   }
 
   const { name, cpf, birth, phone, email, password } = req.body;
-  const hashPassword = await bcrypt.hash(password, 10)
-  const response = await UserController.createUser(name, cpf, birth, phone, email, hashPassword);
+  const hashPassword = await bcrypt.hash(password, 10);
+  const response = await UserController.createUser(
+    name,
+    cpf,
+    birth,
+    phone,
+    email,
+    hashPassword
+  );
 
   if (response.status == 200) {
     res.json(response);
@@ -36,7 +42,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", LoginUserController.loginUser)
+router.post("/login", LoginUserController.loginUser);
 
 // http://localhost:8080/user/list
 router.get("/list", AuthUserMiddlewares, async (req, res) => {
