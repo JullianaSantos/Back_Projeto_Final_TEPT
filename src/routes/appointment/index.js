@@ -12,8 +12,8 @@ router.get("/", (req, res) => {
 // http://localhost:8080/appointment/
 
 router.post("/register", async (req, res) => {
-  const { name, id_user, id_doctor, date, hour, feedback } = req.body;
-  const response = await AppointmentController.createAppointment(name, id_user, id_doctor, date, hour, feedback);
+  const { name, id_user, id_doctor, date, hour, motivation } = req.body;
+  const response = await AppointmentController.createAppointment(name, id_user, id_doctor, date, hour, motivation);
 
   if (response.status == 200) {
     res.json(response);

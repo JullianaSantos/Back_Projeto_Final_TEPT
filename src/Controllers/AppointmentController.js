@@ -2,9 +2,9 @@ const Appointment = require("../Models/Appointment");
 
 module.exports = {
   
-  async createAppointment(name, id_user, id_doctor, date, hour, feedback) {
+  async createAppointment(name, id_user, id_doctor, date, hour, motivation) {
     try {
-      const newAppointment = await Appointment.create({name, id_user, id_doctor, date, hour, feedback,});
+      const newAppointment = await Appointment.create({name, id_user, id_doctor, date, hour, motivation});
       return { message: newAppointment, status: 200 };
     } catch (error) {
       return { message: error, status: 400 };

@@ -22,7 +22,7 @@ const Appointment = new Schema({
         type: String,
         required: true
     },
-    feedback:{
+    motivation:{
         type: String,
         required: true
     }
