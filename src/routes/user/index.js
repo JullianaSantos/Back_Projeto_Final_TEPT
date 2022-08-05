@@ -7,7 +7,7 @@ const UserController = require("../../Controllers/UserController");
 const User = require("../../Models//User");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-const sendMail = require("../../modules/mailer");
+const sendMail = require("../../modules/user_mailer");
 
 router.get("/", (req, res) => {
   res.json({

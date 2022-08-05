@@ -5,6 +5,9 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const DoctorController = require("../../Controllers/DoctorController");
 const Doctor = require("../../Models//Doctor");
+const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+const sendMail = require("../../modules/doctor_mailer");
 
 router.get("/", (req, res) => {
   res.send("Pagina adm");
@@ -45,6 +48,32 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", LoginDoctorController.loginDoctor);
+
+router.post("/forgot-password", async (req, res) => {
+  const { email, newPassword } = req.body;
+  const transporter = nodemailer.createTransport({
+    port: 465,
+    host: "smtp.gmail.com",
+    auth: {
+      user: process.env.PROJECT_EMAIL,
+      pass: process.env.PROJECT_PASSWORD,
+    },
+    secure: true,
+  });
+  const token = await jwt.sign({ email, newPassword }, process.env.SECRET, {
+    expiresIn: 10000,
+  });
+  sendMail(transporter, email, token);
+  return res.json("Olá");
+});
+
+router.get("/change-password/:token", async (req, res) => {
+  const token = req.params.token;
+  const data = jwt.verify(token,process.env.SECRET);
+  const hashPassword = await bcrypt.hash(data.newPassword, 10);
+  const newUser = await User.findOneAndUpdate({email: data.email}, {password: hashPassword}, {new:true})
+  return res.json("Senha atualizada com sucesso!");
+});
 
 router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
   const Doctor = await DoctorController.getDoctor();
