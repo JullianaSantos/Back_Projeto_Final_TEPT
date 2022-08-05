@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UploadImg = new mongoose.Schema({
+const UploadImage = new mongoose.Schema({
     name:String,
     size: Number,
     key: String,
@@ -10,4 +10,4 @@ const UploadImg = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("UpdateImg", UploadImg);
+module.exports = mongoose.model("UpdateImage", UploadImage);
