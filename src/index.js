@@ -25,8 +25,6 @@ const doctorRoutes = require('./routes/doctor/index.js')
 const appointmentRoutes = require('./routes/appointment')
 
 
-
-
 // app.use('/admin', adminRoutes)
 app.use('/user',userRoutes)
 app.use('/doctor', doctorRoutes)
