@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
     port: 465,
-    host: "sitedejulliana@gmail.com",
+    host: "teptinstituto@gmail.com",
     auth: {
         user: process.env.PROJECT_EMAIL,
         pass: process.env.PROJECT_PASSWORD,

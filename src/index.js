@@ -23,12 +23,14 @@ app.use((req, res, next) =>{
 const userRoutes = require('./routes/user')
 const doctorRoutes = require('./routes/doctor/index.js')
 const appointmentRoutes = require('./routes/appointment')
+const uploadimgRoutes = require('./routes/uploadimg')
 
 
 // app.use('/admin', adminRoutes)
 app.use('/user',userRoutes)
 app.use('/doctor', doctorRoutes)
 app.use('/appointment', appointmentRoutes)
+app.use('/upload', uploadimgRoutes)
 
 
 

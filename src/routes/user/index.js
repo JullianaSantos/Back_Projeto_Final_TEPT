@@ -63,6 +63,7 @@ router.post("/forgot-password", async (req, res) => {
   sendMail(transporter, email, token);
   return res.json("Olá");
 });
+
 router.get("/change-password/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token,process.env.SECRET);
@@ -110,5 +111,6 @@ router.delete("/remove/:id", async (req, res) => {
     res.status(500).json(error.message);
   }
 });
+
 
 module.exports = router;
