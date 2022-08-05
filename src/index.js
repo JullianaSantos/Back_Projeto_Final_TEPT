@@ -24,10 +24,15 @@ const userRoutes = require('./routes/user')
 const doctorRoutes = require('./routes/doctor/index.js')
 const appointmentRoutes = require('./routes/appointment')
 
+
+
+
 // app.use('/admin', adminRoutes)
 app.use('/user',userRoutes)
 app.use('/doctor', doctorRoutes)
 app.use('/appointment', appointmentRoutes)
+
+
 
 
 const PORT = process.env.PORT || 8080 
