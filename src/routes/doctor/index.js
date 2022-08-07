@@ -24,17 +24,15 @@ router.post("/register", async (req, res) => {
     });
   }
 
-  // const DoctorCodExist = await Doctor.findOne({ where: { cod:req.body.cod } });
-  // if (DoctorCodExist) {
-  //   return res.status(400).json({
-  //     error: true,
-  //     message: "Este código já está cadastrado!",
-  //   });
-  // }
-  // console.log(DocCodExist);
-  //
-  // Doctor.find({ where: { cod } });
-
+  const DoctorCodExist = await Doctor.findOne({ where: { cod:req.body.cod } });
+  if (DoctorCodExist) {
+    return res.status(400).json({
+      error: true,
+      message: "Este código já está cadastrado!",
+    });
+  }
+  console.log(DocCodExist);
+  
   const { name, org, cod, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
   const response = await DoctorController.createDoctor(
