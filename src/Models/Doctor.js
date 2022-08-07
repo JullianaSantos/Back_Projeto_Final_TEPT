@@ -15,7 +15,7 @@ const Doctor = new Schema({
         required: true
     },
     phone:{
-        type: String,
+        type: Number,
         required: true
     },
     email:{

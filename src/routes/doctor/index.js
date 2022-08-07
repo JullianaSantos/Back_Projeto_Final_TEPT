@@ -24,8 +24,15 @@ router.post("/register", async (req, res) => {
     });
   }
 
-  // const Doc = await Doctor.find({ where: { email } });
-  // console.log(Doc);
+  // const DoctorCodExist = await Doctor.findOne({ where: { cod:req.body.cod } });
+  // if (DoctorCodExist) {
+  //   return res.status(400).json({
+  //     error: true,
+  //     message: "Este código já está cadastrado!",
+  //   });
+  // }
+  // console.log(DocCodExist);
+  //
   // Doctor.find({ where: { cod } });
 
   const { name, org, cod, birth, phone, email, password } = req.body;

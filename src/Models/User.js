@@ -7,11 +7,11 @@ const User = new Schema({
         required: true 
     },
     cpf:{
-        type: String,
+        type: Number, min: 11, max: 11,
         required: true
     },
     phone:{
-        type: String,
+        type: Number,
         required: true
     },
     email:{
