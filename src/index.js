@@ -24,6 +24,7 @@ const userRoutes = require('./routes/user')
 const doctorRoutes = require('./routes/doctor/index.js')
 const appointmentRoutes = require('./routes/appointment')
 const uploadimgRoutes = require('./routes/uploadimg')
+const contactRoutes = require('./routes/contact')
 
 
 // app.use('/admin', adminRoutes)
@@ -31,6 +32,8 @@ app.use('/user',userRoutes)
 app.use('/doctor', doctorRoutes)
 app.use('/appointment', appointmentRoutes)
 app.use('/upload', uploadimgRoutes)
+app.use('/contact', contactRoutes)
+
 
 
 

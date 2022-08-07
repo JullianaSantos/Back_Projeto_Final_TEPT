@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
       message: "Este usuário já existe!",
     });
   }
-
+ 
   const { name, cpf, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
   const response = await UserController.createUser(
