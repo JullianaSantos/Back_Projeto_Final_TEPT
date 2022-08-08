@@ -22,6 +22,14 @@ const Appointment = new Schema({
         type: String,
         required: true
     },
+    healthPlan:{
+        type: String,
+        required: true
+    },
+    firstAppointment:{
+        type: String,
+        required: true
+    },
     motivation:{
         type: String,
         required: true
