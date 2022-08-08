@@ -30,8 +30,7 @@ router.post("/register", async (req, res) => {
       error: true,
       message: "Este código já está cadastrado!",
     });
-  }
- 
+  };
   
   const { name, org, cod, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
