@@ -1,7 +1,7 @@
 const Appointment = require("../Models//Appointment");
 
 module.exports = {
-  async createAppointment(name, id_user, id_doctor, date, hour, motivation) {
+  async createAppointment(name, id_user, id_doctor, date, hour, healthPlan, firstAppointment, motivation) {
     try {
       const newAppointment = await Appointment.create({
         name,
@@ -9,6 +9,8 @@ module.exports = {
         id_doctor,
         date,
         hour,
+        healthPlan,
+        firstAppointment,
         motivation,
       });
       return { message: newAppointment, status: 200 };
