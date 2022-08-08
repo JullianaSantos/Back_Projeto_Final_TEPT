@@ -25,13 +25,13 @@ router.post("/register", async (req, res) => {
       message: "Este usuário já existe!",
     });
   }
-  // let userCpfExist = await User.findOne({ cpf: req.body.cpf });
-  // if (userCpfExist) {
-  //   return res.status(400).json({
-  //     error: true,
-  //     message: "Este cpf já está cadastrado!",
-  //   });
-  // }
+  let userCpfExist = await User.findOne({ cpf: req.body.cpf });
+  if (userCpfExist) {
+    return res.status(400).json({
+      error: true,
+      message: "Este cpf já está cadastrado!",
+    });
+  }
  
   const { name, cpf, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
