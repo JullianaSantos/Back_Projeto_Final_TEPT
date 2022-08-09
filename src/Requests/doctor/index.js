@@ -7,7 +7,7 @@ const DoctorController = require("../../Controllers/DoctorController");
 const Doctor = require("../../Models/Doctor");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-const sendMail = require("../../Modules/doctor_mailer");
+const sendMail = require("../../modules/doctor_mailer");
 
 router.get("/", (req, res) => {
   res.send("Pagina adm");

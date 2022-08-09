@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ContactController = require('../../Controllers/ContactController')
 const nodemailer = require("nodemailer");
-const sendMail = require("../../Modules/contact_mailer");
+const sendMail = require("../../modules/contact_mailer");
 
 router.post("/new-contact", async (req, res) => {
 const { name, phone, email, opinion } = req.body;
