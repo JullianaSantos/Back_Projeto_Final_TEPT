@@ -21,6 +21,5 @@ router.post('/uploadimage', upload.single('file'), async (req, res) => {
     )  
 })
 
-router.delete('/deleteimage',)
 
 module.exports = router;
