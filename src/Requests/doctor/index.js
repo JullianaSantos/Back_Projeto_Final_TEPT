@@ -75,7 +75,7 @@ router.get("/change-password/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token,process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
-  const newUser = await User.findOneAndUpdate({email: data.email}, {password: hashPassword}, {new:true})
+  const newUser = await Doctor.findOneAndUpdate({email: data.email}, {password: hashPassword}, {new:true})
   return res.json("Senha atualizada com sucesso!");
 });
 
@@ -96,9 +96,11 @@ router.get("/find/:id", async (req, res) => {
 });
 
 router.put("/modify/:id", async (req, res) => {
+  let password = (req.body.password)
   try {
     const id = req.params.id;
-    const doctor = await Doctor.findByIdAndUpdate(id, req.body, { new: true });
+    const hashPassword = await bcrypt.hash(password, 10);
+    const doctor = await Doctor.findByOneAndUpdate({_id:id}, {password: hashPassword}, { new: true });
 
     res.status(200).json(doctor);
   } catch (error) {

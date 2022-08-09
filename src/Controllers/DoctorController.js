@@ -56,5 +56,4 @@ module.exports = {
     }
   },
 
-  async login() {}, // Referente a autenticação
 };

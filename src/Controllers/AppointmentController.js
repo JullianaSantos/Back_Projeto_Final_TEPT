@@ -78,6 +78,4 @@ module.exports = {
       return { message: error, status: 400 };
     }
   },
-
-  async login() {}, // Referente a autenticação
 };

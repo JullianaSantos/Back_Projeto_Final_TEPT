@@ -98,9 +98,12 @@ router.get("/find/:id", async (req, res) => {
 });
 
 router.put("/modify/:id", async (req, res) => {
+  let password = (req.body.password)
   try {
     const id = req.params.id;
-    const user = await User.findByIdAndUpdate(id, req.body, { new: true });
+    const hashPassword = await bcrypt.hash(password, 10);
+    const user = await User.findOneAndUpdate({_id:id},{password: hashPassword}, { new: true });
+    
 
     res.status(200).json(user);
   } catch (error) {
