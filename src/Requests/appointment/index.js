@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const AppointmentController = require("../../Controllers/AppointmentController");
-const Appointment = require("../../Models//Appointment");
-const Doctor = require("../../Models//Doctor");
-const User = require("../../Models//User");
+const Appointment = require("../../Models/Appointment");
+const Doctor = require("../../Models/Doctor");
+const User = require("../../Models/User");
 
 router.get("/", (req, res) => {
   res.send("Pagina adm");

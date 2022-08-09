@@ -1,43 +1,43 @@
 const express = require("express");
-const AuthDoctorMiddlewares = require("../../Middlewares/AuthDoctorMiddleware");
-const LoginDoctorController = require("../../Controllers/LoginDoctorController");
+const AuthUserMiddlewares = require("../../Middlewares/AuthUserMiddleware");
+const LoginUserController = require("../../Controllers/LoginUserController");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const DoctorController = require("../../Controllers/DoctorController");
-const Doctor = require("../../Models//Doctor");
+const UserController = require("../../Controllers/UserController");
+const User = require("../../Models/User");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-const sendMail = require("../../modules/doctor_mailer");
+const sendMail = require("../../Modules/user_mailer");
 
 router.get("/", (req, res) => {
-  res.send("Pagina adm");
+  res.json({
+    msg: "Deploy concluído",
+  });
 });
 
-// http://localhost:8080/doctor/
+// http://localhost:8080/user/register
 
 router.post("/register", async (req, res) => {
-  let doctorExist = await Doctor.findOne({ email: req.body.email });
-  if (doctorExist) {
+  let userExist = await User.findOne({ email: req.body.email });
+  if (userExist) {
     return res.status(400).json({
       error: true,
-      message: "Este médico já existe!",
+      message: "Este usuário já existe!",
     });
   }
-
-  let DoctorCodExist = await Doctor.findOne({ cod:req.body.cod });
-  if (DoctorCodExist) {
+  let userCpfExist = await User.findOne({ cpf: req.body.cpf });
+  if (userCpfExist) {
     return res.status(400).json({
       error: true,
-      message: "Este código já está cadastrado!",
+      message: "Este cpf já está cadastrado!",
     });
-  };
-  
-  const { name, org, cod, birth, phone, email, password } = req.body;
+  }
+ 
+  const { name, cpf, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
-  const response = await DoctorController.createDoctor(
+  const response = await UserController.createUser(
     name,
-    org,
-    cod,
+    cpf,
     birth,
     phone,
     email,
@@ -51,7 +51,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", LoginDoctorController.loginDoctor);
+router.post("/login", LoginUserController.loginUser);
 
 router.post("/forgot-password", async (req, res) => {
   const { email, newPassword } = req.body;
@@ -79,15 +79,17 @@ router.get("/change-password/:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!");
 });
 
-router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
-  const Doctor = await DoctorController.getDoctor();
-  res.json(Doctor);
+// http://localhost:8080/user/list
+router.get("/list", AuthUserMiddlewares, async (req, res) => {
+  const Users = await UserController.getUsers();
+  res.json(Users);
 });
 
+// http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
 router.get("/find/:id", async (req, res) => {
   const id = req.params.id;
   console.l;
-  const response = await DoctorController.getOneDoctor(id);
+  const response = await UserController.getOneUser(id);
   if (response.status == 200) {
     res.json(response);
   } else {
@@ -98,9 +100,9 @@ router.get("/find/:id", async (req, res) => {
 router.put("/modify/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const doctor = await Doctor.findByIdAndUpdate(id, req.body, { new: true });
+    const user = await User.findByIdAndUpdate(id, req.body, { new: true });
 
-    res.status(200).json(doctor);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json(error.message);
   }
@@ -109,12 +111,13 @@ router.put("/modify/:id", async (req, res) => {
 router.delete("/remove/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const doctor = await Doctor.findByIdAndRemove(id);
+    const user = await User.findByIdAndRemove(id);
 
-    res.status(200).json(doctor);
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json(error.message);
   }
 });
+
 
 module.exports = router;

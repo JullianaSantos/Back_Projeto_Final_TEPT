@@ -20,11 +20,11 @@ app.use((req, res, next) =>{
 });
 
 // Inicializando as rotas
-const userRoutes = require('./routes/user')
-const doctorRoutes = require('./routes/doctor/index.js')
-const appointmentRoutes = require('./routes/appointment')
-const uploadimgRoutes = require('./routes/uploadimg')
-const contactRoutes = require('./routes/contact')
+const userRoutes = require('./Requests/user')
+const doctorRoutes = require('./Requests/doctor')
+const appointmentRoutes = require('./Requests/appointment')
+const uploadimgRoutes = require('./Requests/uploadimg')
+const contactRoutes = require('./Requests/contact')
 
 
 // app.use('/admin', adminRoutes)
