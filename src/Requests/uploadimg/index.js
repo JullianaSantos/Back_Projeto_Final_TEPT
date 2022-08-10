@@ -4,7 +4,7 @@ const router = express.Router();
 const UploadImage = require('../../Models/UploadImage')
 
 
-router.post('/uploadimage', upload.single('file'), async (req, res) => {
+router.post('/', upload.single('file'), async (req, res) => {
     const { originalname: name, size, filename: key } = req.file;
     const upload = await UploadImage.create({
         name,

@@ -58,7 +58,7 @@ router.get("/find/doctor/:id_doctor", async (req, res) => {
   }
 });
 
-router.put("/modify/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const appointment = await Appointment.findByIdAndUpdate(id, req.body, {
@@ -71,7 +71,7 @@ router.put("/modify/:id", async (req, res) => {
   }
 });
 
-router.delete("/remove/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const appointment = await Appointment.findByIdAndRemove(id);
