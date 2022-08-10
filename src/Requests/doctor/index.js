@@ -53,7 +53,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", LoginDoctorController.loginDoctor);
 
-router.post("/forgot-password", async (req, res) => {
+router.put("/forgot-password", async (req, res) => {
   const { email, newPassword } = req.body;
   const transporter = nodemailer.createTransport({
     port: 465,
@@ -96,16 +96,19 @@ router.get("/find/:id", async (req, res) => {
 });
 
 router.put("/modify/:id", async (req, res) => {
-  let password = (req.body.password)
-  try {
-    const id = req.params.id;
+  const  { name, org, cod, phone, email, password} = req.body;
+  
     const hashPassword = await bcrypt.hash(password, 10);
-    const doctor = await Doctor.findByOneAndUpdate({_id:id}, {password: hashPassword}, { new: true });
-
-    res.status(200).json(doctor);
-  } catch (error) {
-    res.status(500).json(error.message);
-  }
+    const data = { name, org, cod, phone, email, password: hashPassword};
+    const _id =(req.params.id)
+  
+    const user = await Doctor.findOneAndUpdate({_id}, data, { new: true });
+    
+    if (user) {
+      res.status(200).json(user);
+    }else{
+      res.status(500).json({error:"erro"});
+    }
 });
 
 router.delete("/remove/:id", async (req, res) => {
