@@ -53,7 +53,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", LoginDoctorController.loginDoctor);
 
-router.put("/forgot-password", async (req, res) => {
+router.put("/newPassword", async (req, res) => {
   const { email, newPassword } = req.body;
   const transporter = nodemailer.createTransport({
     port: 465,
