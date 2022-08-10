@@ -99,7 +99,7 @@ router.get("/find/:id", async (req, res) => {
 
 router.put("/modify/:id", async (req, res) => {
   
-    const  { name, cpf, birth, phone, email, password} = req.body;
+   const  { name, cpf, birth, phone, email, password} = req.body;
   
     const hashPassword = await bcrypt.hash(password, 10);
     const data = { name, cpf, birth, phone, email, password: hashPassword};
