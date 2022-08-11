@@ -10,9 +10,9 @@ module.exports = async (req, res, next) => {
       error: true,
       code: 130,
       message: "O token de autenticação não existe!"
-    });
+    })
   }
-  console.log(auth);
+  console.log(auth)
   const [, token] = auth.split(" ");
 
   try {
@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
         error: true,
         code: 130,
         message: "O token está expirado!"
-      });
+      })
     } else {
       req.user_id = decoded.id;
       next();
@@ -34,6 +34,6 @@ module.exports = async (req, res, next) => {
       error: true,
       code: 130,
       message: "O token é inválido!"
-    });
+    })
   }
 };
