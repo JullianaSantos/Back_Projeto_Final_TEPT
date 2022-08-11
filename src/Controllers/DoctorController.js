@@ -55,5 +55,4 @@ module.exports = {
       return { message: error, status: 400 };
     }
   },
-
 };

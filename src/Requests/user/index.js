@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
       message: "Este cpf já está cadastrado!",
     });
   }
- 
+
   const { name, cpf, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
   const response = await UserController.createUser(
@@ -73,9 +73,13 @@ router.put("/newPassword", async (req, res) => {
 
 router.get("/:token", async (req, res) => {
   const token = req.params.token;
-  const data = jwt.verify(token,process.env.SECRET);
+  const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
-  const newUser = await User.findOneAndUpdate({email: data.email}, {password: hashPassword}, {new:true})
+  const newUser = await User.findOneAndUpdate(
+    { email: data.email },
+    { password: hashPassword },
+    { new: true }
+  );
   return res.json("Senha atualizada com sucesso!");
 });
 
@@ -98,21 +102,19 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  
-   const  { name, cpf, birth, phone, email, password} = req.body;
-  
-    const hashPassword = await bcrypt.hash(password, 10);
-    const data = { name, cpf, birth, phone, email, password: hashPassword};
-    const _id =(req.params.id)
-  
-    const user = await User.findOneAndUpdate({_id}, data, { new: true });
-    
-    if (user) {
-      res.status(200).json(user);
-    }else{
-      res.status(500).json({error:"erro"});
-    }
-    
+  const { name, cpf, birth, phone, email, password } = req.body;
+
+  const hashPassword = await bcrypt.hash(password, 10);
+  const data = { name, cpf, birth, phone, email, password: hashPassword };
+  const _id = req.params.id;
+
+  const user = await User.findOneAndUpdate({ _id }, data, { new: true });
+
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    res.status(500).json({ error: "erro" });
+  }
 });
 
 router.delete("/:id", async (req, res) => {
@@ -125,6 +127,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(error.message);
   }
 });
-
 
 module.exports = router;

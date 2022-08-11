@@ -24,14 +24,14 @@ router.post("/register", async (req, res) => {
     });
   }
 
-  let DoctorCodExist = await Doctor.findOne({ cod:req.body.cod });
+  let DoctorCodExist = await Doctor.findOne({ cod: req.body.cod });
   if (DoctorCodExist) {
     return res.status(400).json({
       error: true,
       message: "Este código já está cadastrado!",
     });
-  };
-  
+  }
+
   const { name, org, cod, birth, phone, email, password } = req.body;
   const hashPassword = await bcrypt.hash(password, 10);
   const response = await DoctorController.createDoctor(
@@ -73,9 +73,13 @@ router.put("/newPassword", async (req, res) => {
 
 router.get("/:token", async (req, res) => {
   const token = req.params.token;
-  const data = jwt.verify(token,process.env.SECRET);
+  const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
-  const newUser = await Doctor.findOneAndUpdate({email: data.email}, {password: hashPassword}, {new:true})
+  const newUser = await Doctor.findOneAndUpdate(
+    { email: data.email },
+    { password: hashPassword },
+    { new: true }
+  );
   return res.json("Senha atualizada com sucesso!");
 });
 
@@ -96,19 +100,19 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => {
-  const  { name, org, cod, phone, email, password} = req.body;
-  
-    const hashPassword = await bcrypt.hash(password, 10);
-    const data = { name, org, cod, phone, email, password: hashPassword};
-    const _id =(req.params.id)
-  
-    const user = await Doctor.findOneAndUpdate({_id}, data, { new: true });
-    
-    if (user) {
-      res.status(200).json(user);
-    }else{
-      res.status(500).json({error:"erro"});
-    }
+  const { name, org, cod, phone, email, password } = req.body;
+
+  const hashPassword = await bcrypt.hash(password, 10);
+  const data = { name, org, cod, phone, email, password: hashPassword };
+  const _id = req.params.id;
+
+  const user = await Doctor.findOneAndUpdate({ _id }, data, { new: true });
+
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    res.status(500).json({ error: "erro" });
+  }
 });
 
 router.delete("/:id", async (req, res) => {

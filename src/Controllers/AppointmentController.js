@@ -55,7 +55,6 @@ module.exports = {
         { new: true }
       );
       return { message: modifyAppointmente, status: 200 };
-      // Vai receber todos os campos que precisem ser atualizados através do BODY
     } catch (error) {
       return { message: error, status: 400 };
     }
