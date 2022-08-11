@@ -9,7 +9,7 @@ module.exports = async (req, res, next) => {
     return res.status(401).json({
       error: true,
       code: 130,
-      message: "O token de autenticação não existe!",
+      message: "O token de autenticação não existe!"
     });
   }
   console.log(auth);
@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
       return res.status(401).json({
         error: true,
         code: 130,
-        message: "O token está expirado!",
+        message: "O token está expirado!"
       });
     } else {
       req.doctor_id = decoded.id;
@@ -33,7 +33,7 @@ module.exports = async (req, res, next) => {
     return res.status(401).json({
       error: true,
       code: 130,
-      message: "O token é inválido!",
+      message: "O token é inválido!"
     });
   }
 };
