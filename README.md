@@ -22,7 +22,7 @@ dotenv: é utilizada para orquestrar as variáveis ambiente de um projeto;<br>
 express: fornece recursos para aplicativos web e auxilia na contrução dos métodos HTTP;<br>
 heroku: plataforma nuvem que faz deploy de várias aplicações back-end seja para hospedagem, testes em produção ou escalar as aplicações; <br>
 jsonwebtoken: sistema de transferência de dados que pode ser enviado via URL, POST ou em um cabeçalho HTTP (header) de maneira segura; <br>
-mongoose: é uma ORM do MongoDB que facilita o uso do mesmo e a modelagem de dados do objeto; <br>
+mongoose: é uma ODM do MongoDB que facilita o uso do mesmo e a modelagem de dados; <br>
 multer: é um middleware node.js para manipulação multipart/form-data, usado principalmente para fazer upload de arquivos; <br>
 nodemailer: módulo que facilita o envio de emails no nodejs. 
 
