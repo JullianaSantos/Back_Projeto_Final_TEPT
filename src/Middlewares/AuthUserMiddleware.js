@@ -4,7 +4,7 @@ const { promisify } = require("util");
 
 module.exports = async (req, res, next) => {
   const auth = req.headers.authorization;
-
+  
   if (!auth) {
     return res.status(401).json({
       error: true,
@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
       message: "O token de autenticação não existe!"
     })
   }
-  console.log(auth)
+  
   const [, token] = auth.split(" ");
 
   try {

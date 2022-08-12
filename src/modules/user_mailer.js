@@ -17,7 +17,7 @@ function sendMail(transporter, to, token) {
     subject: "Mensagem, clique aqui!",
     text: "Texto!",
     html:
-      "<a href='http://localhost:8080/user/change-password/" + token + "'>Mudar senha</a>",
+      "<a href='http://localhost:8080/user/" + token + "'>Mudar senha</a>",
   };
 
   transporter.sendMail(mailData);

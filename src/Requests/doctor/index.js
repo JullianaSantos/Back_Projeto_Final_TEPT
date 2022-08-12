@@ -68,18 +68,20 @@ router.put("/newPassword", async (req, res) => {
     expiresIn: 10000,
   });
   sendMail(transporter, email, token);
-  return res.json("Olá");
+  return res.json("Processo de redefinir senha quase concluído! Clique no link enviado para o seu email.");
 });
 
 router.get("/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
-  const newUser = await Doctor.findOneAndUpdate(
+
+  const newDoctor = await Doctor.findOneAndUpdate(
     { email: data.email },
     { password: hashPassword },
     { new: true }
   );
+
   return res.json("Senha atualizada com sucesso!");
 });
 
