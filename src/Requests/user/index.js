@@ -103,7 +103,7 @@ router.get("/updatePassword:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!");
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/modify/:id", async (req, res) => {
   const { name, cpf, birth, phone, email, password } = req.body;
 
   const hashPassword = await bcrypt.hash(password, 10);
