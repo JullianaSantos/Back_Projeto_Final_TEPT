@@ -22,7 +22,7 @@ router.get("/list", async (req, res) => {
 });
 
 // http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
-router.get("/:id", async (req, res) => {
+router.get("/find/:id", async (req, res) => {
   const id = req.params.id;
   console.l;
   const response = await UserController.getOneUser(id);
@@ -91,7 +91,7 @@ router.put("/newPassword", async (req, res) => {
   );
 });
 
-router.get("/:token", async (req, res) => {
+router.get("/updatePassword:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
