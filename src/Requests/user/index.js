@@ -71,7 +71,6 @@ router.put("/newPassword", async (req, res) => {
   return res.json(
     "Processo de redefinir senha quase concluído! Clique no link enviado para o seu email.");
 });
-
 router.get("/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token, process.env.SECRET);
