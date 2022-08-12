@@ -85,10 +85,6 @@ router.get("/:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!");
 });
 
-// router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
-//   const Doctor = await DoctorController.getDoctor();
-//   res.json(Doctor);
-// });
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;

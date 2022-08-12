@@ -83,11 +83,6 @@ router.get("/:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!")
 });
 
-// http://localhost:8080/user/list
-// router.get("/list", AuthUserMiddlewares, async (req, res) => {
-//   const Users = await UserController.getUsers();
-//   res.json(Users);
-// });
 
 // http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
 router.get("/:id", async (req, res) => {
