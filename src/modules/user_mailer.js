@@ -17,7 +17,7 @@ function sendMail(transporter, to, token) {
     subject: "Para concluir o processo de redefinir senha, clique aqui!",
     text: "Texto!",
     html:
-      "<a href='https://institutotept.herokuapp.com/user/" + token + "'>Mudar senha</a>",
+      "<a href='https://institutotept.herokuapp.com/user/"+ token +"'>Mudar senha</a>",
   };
 
   transporter.sendMail(mailData);
