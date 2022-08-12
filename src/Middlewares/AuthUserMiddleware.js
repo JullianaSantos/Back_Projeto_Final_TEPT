@@ -16,7 +16,7 @@ module.exports = async (req, res, next) => {
   const [, token] = auth.split(" ");
 
   try {
-    const decoded = await promisify(jwt.verify)(token, process.env.SECRET);
+    const decoded = await promisify(jwt.verify)(token,process.env.SECRET);
 
     if (!decoded) {
       return res.status(401).json({
