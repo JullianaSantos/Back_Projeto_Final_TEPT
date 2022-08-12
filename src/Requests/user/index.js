@@ -15,6 +15,24 @@ router.get("/", (req, res) => {
   });
 });
 
+// http://localhost:8080/user/list
+router.get("/list", async (req, res) => {
+  const Users = await UserController.getUsers();
+  res.json(Users);
+});
+
+// http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  console.l;
+  const response = await UserController.getOneUser(id);
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+});
+
 // http://localhost:8080/user/register
 
 router.post("/register", async (req, res) => {
@@ -69,8 +87,10 @@ router.put("/newPassword", async (req, res) => {
   });
   sendMail(transporter, email, token);
   return res.json(
-    "Processo de redefinir senha quase concluído! Clique no link enviado para o seu email.");
+    "Processo de redefinir senha quase concluído! Clique no link enviado para o seu email."
+  );
 });
+
 router.get("/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token, process.env.SECRET);
@@ -80,20 +100,7 @@ router.get("/:token", async (req, res) => {
     { password: hashPassword },
     { new: true }
   );
-  return res.json("Senha atualizada com sucesso!")
-});
-
-
-// http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
-router.get("/:id", async (req, res) => {
-  const id = req.params.id;
-  console.l;
-  const response = await UserController.getOneUser(id);
-  if (response.status == 200) {
-    res.json(response);
-  } else {
-    res.json(response);
-  }
+  return res.json("Senha atualizada com sucesso!");
 });
 
 router.put("/:id", async (req, res) => {

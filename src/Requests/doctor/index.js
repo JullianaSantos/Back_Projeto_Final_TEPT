@@ -13,6 +13,22 @@ router.get("/", (req, res) => {
   res.send("Pagina adm");
 });
 
+router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
+  const Doctor = await DoctorController.getDoctor();
+  res.json(Doctor);
+});
+
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  console.l;
+  const response = await DoctorController.getOneDoctor(id);
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+});
+
 // http://localhost:8080/doctor/
 
 router.post("/register", async (req, res) => {
@@ -85,17 +101,6 @@ router.get("/:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!");
 });
 
-
-router.get("/:id", async (req, res) => {
-  const id = req.params.id;
-  console.l;
-  const response = await DoctorController.getOneDoctor(id);
-  if (response.status == 200) {
-    res.json(response);
-  } else {
-    res.json(response);
-  }
-});
 
 router.put("/:id", async (req, res) => {
   const { name, org, cod, phone, email, password } = req.body;
