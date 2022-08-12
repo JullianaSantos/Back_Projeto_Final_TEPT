@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/DevJulliana/-Back_Projeto_Final#readme",
   "dependencies": {
-    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
