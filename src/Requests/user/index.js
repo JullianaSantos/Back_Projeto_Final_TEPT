@@ -76,8 +76,7 @@ router.get("/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
-
-  const newUser = await User.findOneAndUpdate(
+  await User.findOneAndUpdate(
     { email: data.email },
     { password: hashPassword },
     { new: true }
@@ -86,10 +85,10 @@ router.get("/:token", async (req, res) => {
 });
 
 // http://localhost:8080/user/list
-router.get("/list", AuthUserMiddlewares, async (req, res) => {
-  const Users = await UserController.getUsers();
-  res.json(Users);
-});
+// router.get("/list", AuthUserMiddlewares, async (req, res) => {
+//   const Users = await UserController.getUsers();
+//   res.json(Users);
+// });
 
 // http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
 router.get("/:id", async (req, res) => {

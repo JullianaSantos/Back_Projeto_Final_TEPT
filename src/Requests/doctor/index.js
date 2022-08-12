@@ -76,7 +76,7 @@ router.get("/:token", async (req, res) => {
   const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);
 
-  const newDoctor = await Doctor.findOneAndUpdate(
+  await Doctor.findOneAndUpdate(
     { email: data.email },
     { password: hashPassword },
     { new: true }
@@ -85,10 +85,10 @@ router.get("/:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!");
 });
 
-router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
-  const Doctor = await DoctorController.getDoctor();
-  res.json(Doctor);
-});
+// router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
+//   const Doctor = await DoctorController.getDoctor();
+//   res.json(Doctor);
+// });
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;

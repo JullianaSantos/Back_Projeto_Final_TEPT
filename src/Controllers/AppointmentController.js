@@ -1,12 +1,12 @@
 const Appointment = require("../Models//Appointment");
 
 module.exports = {
-  async createAppointment(name, id_user, id_doctor, date, hour, healthPlan, firstAppointment, motivation) {
+  async createAppointment(name, id_user, speciality, date, hour, healthPlan, firstAppointment, motivation) {
     try {
       const newAppointment = await Appointment.create({
         name,
         id_user,
-        id_doctor,
+        speciality,
         date,
         hour,
         healthPlan,

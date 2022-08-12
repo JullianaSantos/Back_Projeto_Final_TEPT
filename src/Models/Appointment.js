@@ -10,7 +10,7 @@ const Appointment = new Schema({
     type: String,
     required: true,
   },
-  id_doctor: {
+  speciality: {
     type: String,
     required: true,
   },
