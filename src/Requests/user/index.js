@@ -80,7 +80,7 @@ router.get("/:token", async (req, res) => {
     { password: hashPassword },
     { new: true }
   );
-  return res.json("Senha atualizada com sucesso!");
+  return res.json("Senha atualizada com sucesso!")
 });
 
 // http://localhost:8080/user/list
