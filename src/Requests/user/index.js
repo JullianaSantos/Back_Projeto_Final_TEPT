@@ -22,7 +22,7 @@ router.get("/list", async (req, res) => {
 });
 
 // http://localhost:8080/user/find/62d3764573536b7ecb70c4ba
-router.get("/find/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const id = req.params.id;
   console.l;
   const response = await UserController.getOneUser(id);
