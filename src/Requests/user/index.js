@@ -72,18 +72,18 @@ router.put("/newPassword", async (req, res) => {
     "Processo de redefinir senha quase concluído! Clique no link enviado para o seu email.");
 });
 
-// router.get("/:token", async (req, res) => {
-//   const token = req.params.token;
-//   const data = jwt.verify(token, process.env.SECRET);
-//   const hashPassword = await bcrypt.hash(data.newPassword, 10);
+router.get("/:token", async (req, res) => {
+  const token = req.params.token;
+  const data = jwt.verify(token, process.env.SECRET);
+  const hashPassword = await bcrypt.hash(data.newPassword, 10);
 
-//   const newUser = await User.findOneAndUpdate(
-//     { email: data.email },
-//     { password: hashPassword },
-//     { new: true }
-//   );
-//   return res.json("Senha atualizada com sucesso!");
-// });
+  const newUser = await User.findOneAndUpdate(
+    { email: data.email },
+    { password: hashPassword },
+    { new: true }
+  );
+  return res.json("Senha atualizada com sucesso!");
+});
 
 // http://localhost:8080/user/list
 router.get("/list", AuthUserMiddlewares, async (req, res) => {
