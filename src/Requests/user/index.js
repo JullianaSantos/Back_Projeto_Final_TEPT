@@ -103,7 +103,7 @@ router.get("/updatePassword/:token", async (req, res) => {
   return res.json("Senha atualizada com sucesso!");
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/modify/:id", async (req, res) => {
   const updateValues = {
     ...(req.body.name ? { name: req.body.name } : {}),
     ...(req.body.cpf ? { cpf: req.body.cpf } : {}),
