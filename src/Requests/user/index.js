@@ -91,7 +91,7 @@ router.put("/newPassword", async (req, res) => {
   );
 });
 
-router.get("/updatePassword:token", async (req, res) => {
+router.get("/updatePassword/:token", async (req, res) => {
   const token = req.params.token;
   const data = jwt.verify(token, process.env.SECRET);
   const hashPassword = await bcrypt.hash(data.newPassword, 10);

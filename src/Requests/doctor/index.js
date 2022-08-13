@@ -20,7 +20,6 @@ router.get("/list", AuthDoctorMiddlewares, async (req, res) => {
 
 router.get("/find/:id", async (req, res) => {
   const id = req.params.id;
-  console.l;
   const response = await DoctorController.getOneDoctor(id);
   if (response.status == 200) {
     res.json(response);
