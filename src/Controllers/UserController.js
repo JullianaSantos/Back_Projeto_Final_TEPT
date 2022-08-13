@@ -37,7 +37,7 @@ module.exports = {
 
   async updateUser(id) {
     try {
-      const modifyUser = await User.findByIdAndUpdate(id, req.body, {
+      const modifyUser = await User.findOneAndUpdate(id, req.body, {
         new: true,
       });
       return { message: modifyUser, status: 200 };

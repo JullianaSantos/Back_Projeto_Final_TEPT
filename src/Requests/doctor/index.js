@@ -103,13 +103,19 @@ router.get("/updateNewPassword/:token", async (req, res) => {
 
 
 router.put("/:id", async (req, res) => {
-  const { name, org, cod, phone, email, password } = req.body;
+  const updateValues = {
+    ...(req.body.name ? { name: req.body.name } : {}),
+    ...(req.body.cpf ? { cpf: req.body.cpf } : {}),
+    ...(req.body.birth ? { birth: req.body.birth } : {}),
+    ...(req.body.phone ? { phone: req.body.phone } : {}),
+    ...(req.body.email ? { email: req.body.email } : {}),
+    ...(req.body.password ? { password: req.body.password } : {}),
+  };
 
-  const hashPassword = await bcrypt.hash(password, 10);
-  const data = { name, org, cod, phone, email, password: hashPassword };
+  const hashPassword = updateValues.password && await bcrypt.hash(updateValues.password,10) || null
   const _id = req.params.id;
 
-  const user = await Doctor.findOneAndUpdate({ _id }, data, { new: true });
+  const user = await Doctor.findOneAndUpdate({ _id },{ ...updateValues, ...(updateValues.password ? { password: hashPassword } : {})}, { new: true });
 
   if (user) {
     res.status(200).json(user);

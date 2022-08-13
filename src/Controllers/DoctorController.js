@@ -38,7 +38,7 @@ module.exports = {
 
   async updateDoctor(id) {
     try {
-      const modifyDoctor = await Doctor.findByIdAndUpdate(id, req.body, {
+      const modifyDoctor = await Doctor.findOneAndUpdate(id, req.body, {
         new: true,
       });
       return { message: modifyDoctor, status: 200 };
