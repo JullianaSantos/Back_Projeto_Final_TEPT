@@ -12,10 +12,9 @@ router.get("/", (req, res) => {
 // http://localhost:8080/appointment/
 
 router.post("/register", async (req, res) => {
-  const { name, id_user, speciality, date, hour, healthPlan, firstAppointment, motivation } = req.body;
+  const { name, speciality, date, hour, healthPlan, firstAppointment, motivation } = req.body;
   const response = await AppointmentController.createAppointment(
     name,
-    id_user,
     speciality,
     date,
     hour,
@@ -36,7 +35,7 @@ router.get("/list", async (req, res) => {
   res.json(Appointments);
 });
 
-router.get("/find/user/:id_user", async (req, res) => {
+router.get("/find/user/:id", async (req, res) => {
   const User = req.params.id_user;
 
   const response = await AppointmentController.getAppointmentByUser(User);
@@ -47,7 +46,7 @@ router.get("/find/user/:id_user", async (req, res) => {
   }
 });
 
-router.get("/find/doctor/:id_doctor", async (req, res) => {
+router.get("/find/doctor/:id", async (req, res) => {
   const Doctor = req.params.id_doctor;
 
   const response = await AppointmentController.getAppointmentByDoctor(Doctor);
