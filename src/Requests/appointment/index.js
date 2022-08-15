@@ -36,7 +36,7 @@ router.get("/list", async (req, res) => {
 });
 
 router.get("/find/user/:id", async (req, res) => {
-  const User = req.params.id_user;
+  const User = req.id_user;
 
   const response = await AppointmentController.getAppointmentByUser(User);
   if (response.status == 200) {

@@ -28,6 +28,16 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
+router.post("/find/doctor", AuthDoctorMiddlewares, async (req, res) =>{
+  const id = req.doctor_id;
+  const response = await DoctorController.getOneDoctor(id);
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+} )
+
 // http://localhost:8080/doctor/
 
 router.post("/register", async (req, res) => {
