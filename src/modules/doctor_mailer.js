@@ -14,7 +14,7 @@ function sendMail(transporter, to, token) {
   const mailData = {
     from: process.env.PROJECT_EMAIL,
     to: to,
-    subject: "Mensagem, clique aqui!",
+    subject: "Para concluir o processo de redefinir senha, clique aqui!",
     text: "Texto!",
     html:
       "<a href='https://institutotept.herokuapp.com/doctor/updatePassword/" +token+ "'>Mudar senha</a>",
