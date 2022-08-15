@@ -28,4 +28,13 @@ nodemailer: módulo que facilita o envio de emails no nodejs.
 
 Estrutura da Aplicação 
 
-Nossa api está estruturada em uma pasta principal chamada src que contém 8 subpastas com a base da aplicação. A pasta config contém as configurações do token, da conexão com o banco de dados MongoDB e da parte de upload de imagem. A pasta controllers 
+Nossa api está estruturada em uma pasta principal chamada src que contém 8 subpastas com a base da aplicação. A pasta config contém as configurações do token, da conexão com o banco de dados MongoDB e da parte de upload de imagem. A pasta controllers contém a lógica dos CRUDs da nossa aplicação. A de middlewares contém as autenticações com o jwt. A dos models contém o modelo de organização dos dados que serão enviados para o banco de dados. A modules possui as configurações e estrutura dos emails que serão enviados. A pasta de requests possui as requisições HTTPs(post/put/get/delete) e as validações das mesmas. Já a tmp é para onde as imagens inicialmente irão depois que usuário fizer o update, as informações delas serão encaminhadas para o banco de dados. O nosso index possui as rotas de inicialização, além da porta que será utilizada a url ou o localhost. O gitignore foi utilizado para não subir para o github dados sensiveis. 
+
+Funcionalidades
+
+O usuário conseguirá se cadastrar no nosso site, fazer o login, mudar a foto de perfil, fazer modificações das suas informações, marcar consultas, caso ele esqueça a senha, conseguirá facilmente modificá-la. Poderá também entrar em contato mandando suas sugestões ou dúvidas.
+
+
+Conclusão
+
+ O Instituto TEPT visa a praticidade do usuário, observando sempre o nosso público alvo que precisa de algo rápido e que não lhe cause qualquer tipo de estresse. Além de ser uma ótima plataforma para que os nossos médicos trabalhem. 
