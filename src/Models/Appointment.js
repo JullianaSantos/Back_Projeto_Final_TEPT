@@ -11,7 +11,7 @@ const Appointment = new Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   hour: {
