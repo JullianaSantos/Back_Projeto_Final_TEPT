@@ -4,7 +4,7 @@ Backend do projeto final - Programa Start
 <h1 align="center"> Instituto TEPT </h1>
 
 
-O Instituto TEPT é uma telemedicina que visa o atendimento especializado para pessoas que sofrem de TEPT (Transtorno Estresse Pós-Traumatico), causado por brigas de transito, acidentes, assaltos e etc. Nosso 
+O Instituto TEPT é uma telemedicina que visa o atendimento especializado para pessoas que sofrem de TEPT (Transtorno Estresse Pós-Traumático), causado por brigas de transito, acidentes, assaltos e etc. Nosso 
 objetivo é que pessoas com poucos recursos tenham acesso ao tratamento de qualidade com psicólogos, psiquiatras
 e assistes sociais. 
 
