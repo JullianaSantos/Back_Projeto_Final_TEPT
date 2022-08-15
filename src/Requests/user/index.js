@@ -32,6 +32,16 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.post("/find/user", AuthUserMiddlewares, async (req, res) =>{
+  const id = req.user_id;
+  const response = await UserController.getOneUser(id);
+  if (response.status == 200) {
+    res.json(response);
+  } else {
+    res.json(response);
+  }
+} )
+
 // http://localhost:8080/user/register
 
 router.post("/register", async (req, res) => {
