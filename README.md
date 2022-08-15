@@ -4,7 +4,7 @@ Backend do projeto final - Programa Start
 <h1 align="center"> Instituto TEPT </h1>
 
 
-O Instituto TEPT é uma telemedicina que visa o atendimento especializado para pessoas que sofrem de TEPT (Transtorno Estresse Pós Traumatico), causado por brigas de transito, acidentes, assaltos e etc. Nosso 
+O Instituto TEPT é uma telemedicina que visa o atendimento especializado para pessoas que sofrem de TEPT (Transtorno Estresse Pós-Traumatico), causado por brigas de transito, acidentes, assaltos e etc. Nosso 
 objetivo é que pessoas com poucos recursos tenham acesso ao tratamento de qualidade com psicólogos, psiquiatras
 e assistes sociais. 
 
@@ -20,8 +20,8 @@ body-parser: converte o body da requisição para vários formatos, inclusive js
 cors: informa aos navegadores se determinado recurso pode ser ou não acessado;<br>
 dotenv: é utilizada para orquestrar as variáveis ambiente de um projeto;<br>
 express: fornece recursos para aplicativos web e auxilia na contrução dos métodos HTTP;<br>
-heroku: plataforma nuvem que faz deploy de várias aplicações back-end seja para hospedagem, testes em produção ou escalar as aplicações; <br>
-jsonwebtoken: sistema de transferência de dados que pode ser enviado via URL, POST ou em um cabeçalho HTTP (header) de maneira segura; <br>
+heroku: é uma plataforma na nuvem utilizada para fazer o deploy de várias aplicações back-end seja para hospedagem, testes em produção ou escalar as aplicações; <br>
+jsonwebtoken: é um sistema de transferência de dados que pode ser enviado via URL, POST ou em um cabeçalho HTTP (header) de maneira segura; <br>
 mongoose: é uma ODM do MongoDB que facilita o uso do mesmo e a modelagem de dados; <br>
 multer: é um middleware node.js para manipulação multipart/form-data, usado principalmente para fazer upload de arquivos; <br>
 nodemailer: módulo que facilita o envio de emails no nodejs. 
