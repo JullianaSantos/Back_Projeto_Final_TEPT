@@ -8,6 +8,12 @@ O Instituto TEPT é uma telemedicina que visa o atendimento especializado para p
 objetivo é que pessoas com poucos recursos tenham acesso ao tratamento de qualidade com psicólogos, psiquiatras
 e assistes sociais. 
 
+# Equipe Desenvolvedora: Rocket of Technology(ROT)
+
+* [Ananias Nicolau](https://github.com/NaniasNic)
+* [Erika Ximenes](https://github.com/Erikaximenes)
+* [Dayanny Gyselly](https://github.com/Dayanny1)
+* [Julliana Vitória](https://github.com/DevJulliana)
 
 Tecnologias Utilizadas
 
@@ -15,16 +21,16 @@ Para o desenvolvimento do back-end do projeto, utilizamos o Noje Js por ter gran
 
 Usamos algumas bibliotecas e frameworks para que aplicação rodasse da melhor forma e para que estivesse de acordo com o objetivo do nosso projeto, foram elas: 
 
-bcryptjs: método de criptografia do tipo hash para senhas; <br>
-body-parser: converte o body da requisição para vários formatos, inclusive json; <br>
-cors: informa aos navegadores se determinado recurso pode ser ou não acessado;<br>
-dotenv: é utilizada para orquestrar as variáveis ambiente de um projeto;<br>
-express: fornece recursos para aplicativos web e auxilia na contrução dos métodos HTTP;<br>
-heroku: é uma plataforma na nuvem utilizada para fazer o deploy de várias aplicações back-end seja para hospedagem, testes em produção ou escalar as aplicações; <br>
-jsonwebtoken: é um sistema de transferência de dados que pode ser enviado via URL, POST ou em um cabeçalho HTTP (header) de maneira segura; <br>
-mongoose: é uma ODM do MongoDB que facilita o uso do mesmo e a modelagem de dados; <br>
-multer: é um middleware node.js para manipulação multipart/form-data, usado principalmente para fazer upload de arquivos; <br>
-nodemailer: módulo que facilita o envio de emails no nodejs. 
+ * bcryptjs: método de criptografia do tipo hash para senhas; <br>
+ * body-parser: converte o body da requisição para vários formatos, inclusive json; <br>
+ * cors: informa aos navegadores se determinado recurso pode ser ou não acessado;<br>
+ * dotenv: é utilizada para orquestrar as variáveis ambiente de um projeto;<br>
+ * express: fornece recursos para aplicativos web e auxilia na contrução dos métodos HTTP;<br>
+ * heroku: é uma plataforma na nuvem utilizada para fazer o deploy de várias aplicações back-end seja para hospedagem, testes em produção ou escalar as aplicações; <br>
+ * jsonwebtoken: é um sistema de transferência de dados que pode ser enviado via URL, POST ou em um cabeçalho HTTP (header) de maneira segura; <br>
+ * mongoose: é uma ODM do MongoDB que facilita o uso do mesmo e a modelagem de dados; <br>
+ * multer: é um middleware node.js para manipulação multipart/form-data, usado principalmente para fazer upload de arquivos; <br>
+ * nodemailer: módulo que facilita o envio de emails no nodejs. 
 
 Estrutura da Aplicação 
 
