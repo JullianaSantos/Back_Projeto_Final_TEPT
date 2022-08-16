@@ -8,12 +8,6 @@ O Instituto TEPT é uma telemedicina que visa o atendimento especializado para p
 objetivo é que pessoas com poucos recursos tenham acesso ao tratamento de qualidade com psicólogos, psiquiatras
 e assistes sociais. 
 
-# Equipe Desenvolvedora: Rocket of Technology(ROT)
-
-* [Ananias Nicolau](https://github.com/NaniasNic)
-* [Erika Ximenes](https://github.com/Erikaximenes)
-* [Dayanny Gyselly](https://github.com/Dayanny1)
-* [Julliana Vitória](https://github.com/DevJulliana)
 
 Tecnologias Utilizadas
 
@@ -44,3 +38,12 @@ O usuário conseguirá se cadastrar no nosso site, fazer o login, mudar a foto d
 Conclusão
 
  O Instituto TEPT visa a praticidade do usuário, observando sempre o nosso público alvo que precisa de algo rápido e que não lhe cause qualquer tipo de estresse. Além de ser uma ótima plataforma para que os nossos médicos trabalhem. 
+
+<br>
+
+# Equipe Desenvolvedora: Rocket of Technology(ROT)
+
+* [Ananias Nicolau](https://github.com/NaniasNic)
+* [Erika Ximenes](https://github.com/Erikaximenes)
+* [Dayanny Gyselly](https://github.com/Dayanny1)
+* [Julliana Vitória](https://github.com/DevJulliana)
